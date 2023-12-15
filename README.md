@@ -32,14 +32,6 @@ To dive into our project, follow these steps:
    ```shell
    pip install -r requirements.txt
    ```
-5. Initiate Training:
-   ```shell
-   python3 Final_Pipeline_Training_File.py
-   ```
-6. Execute the Testing Script:
-   ```shell
-   python3 Final_Pipeline_Testing.py
-   ```
 
 ## Usage Guide 🛠️
 - **EDA.py**: Load your dataset to commence exploratory data analysis. Utilize the script to uncover key trends and distribution patterns.
