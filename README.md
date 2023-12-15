@@ -9,8 +9,8 @@ Our project consists of the following key scripts:
 
 1. **EDA.py**: This script is your starting point for data exploration. It includes various tools for visualizing and understanding your dataset.
 2. **Preprocessing.py**: Here, we've implemented cutting-edge data preprocessing techniques to prepare your data for analysis.
-3. **Final_Pipeline_Training_File.py**: This script contains the comprehensive codebase for training models on two distinct tasks - Task1 and Task2.
-4. **Final_Pipeline_Testing.py**: Designed for deploying the trained model, this script serves as the architecture for final model evaluation.
+3. **Task 1**: This folder contains the required python files for the models being used in task 1.
+4. **Task 2**: This folder contains the required python files for the models being used in task 2.
 
 ## Getting Started 🚀
 To dive into our project, follow these steps:
