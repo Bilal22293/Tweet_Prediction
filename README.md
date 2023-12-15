@@ -19,19 +19,24 @@ To dive into our project, follow these steps:
    ```shell
    git clone https://github.com/TeamNumber59/Adobe-Inter-IIT-Tech-Meet-12.0.git
    ```
-2. Set Up a Virtual Environment:
+2. Run Setup Script
+   ```shell
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+3. Set Up a Virtual Environment:
    ```shell
    python -m venv venv
    ```
-3. Install Dependencies:
+4. Install Dependencies:
    ```shell
    pip install -r requirements.txt
    ```
-4. Initiate Training:
+5. Initiate Training:
    ```shell
    python3 Final_Pipeline_Training_File.py
    ```
-5. Execute the Testing Script:
+6. Execute the Testing Script:
    ```shell
    python3 Final_Pipeline_Testing.py
    ```
