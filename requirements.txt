@@ -14,3 +14,4 @@ transformers
 rake_nltk
 Pillow
 gdown
+seaborn
