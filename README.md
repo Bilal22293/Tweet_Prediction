@@ -17,7 +17,7 @@ To dive into our project, follow these steps:
 
 1. Clone the Repository:
    ```shell
-   git clone [repository-url]
+   git clone https://github.com/TeamNumber59/Adobe-Inter-IIT-Tech-Meet-12.0.git
    ```
 2. Set Up a Virtual Environment:
    ```shell
