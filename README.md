@@ -36,8 +36,6 @@ To dive into our project, follow these steps:
 ## Usage Guide 🛠️
 - **EDA.py**: Load your dataset to commence exploratory data analysis. Utilize the script to uncover key trends and distribution patterns.
 - **Preprocessing.py**: Employ this script to refine your data, managing any missing values and standardizing features.
-- **Final_Pipeline_Training_File**: Use this for model training tailored to your dataset and specified tasks.
-- **Final_Pipeline_Testing.py**: This is your go-to script for model testing and evaluation.
 
 ## License 📄
 This project is proudly licensed under the [MIT License](LICENSE).
