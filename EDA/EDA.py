@@ -1,6 +1,6 @@
 
 import pandas as pd
-df=pd.read_csv('/Preprocess/behaviour_simulation_train.csv')
+df=pd.read_csv('../Preprocess/preprocess_final_behaviour_dataset.csv')
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 
 # Assuming you have a DataFrame named df
 # Convert the 'date' column to datetime format
-df['date'] = pd.to_datetime(df['date'])
+df['date_only'] = pd.to_datetime(df['date_only'])
 
 # Create a new column 'month-year' with the desired format as string for better readability
-df['month-year'] = df['date'].dt.strftime('%Y-%m')
+df['month-year'] = df['date_only'].dt.strftime('%Y-%m')
 
 # Group the data by 'month-year' and 'username' to count the total likes for each user in each month
 monthly_likes = df.groupby(['month-year', 'username'])['likes'].sum().reset_index()
@@ -58,6 +58,9 @@ for i in range(len(unique_months), num_rows * num_cols):
 plt.tight_layout(pad=3.0)  # Adjust the padding here
 plt.show()
 
+"""# Boxplots of 'Likes' by Usernames (First 816 Users)"""
+
+
 # Get the 'username' column from the DataFrame 'df' and convert it to a list
 user = df['username'].tolist()
 
@@ -71,64 +74,7 @@ for u in user:
         # If 'u' is not in 'username', add it to the 'username' list
         username.append(u)
 
-print(len(username))
-
 username=username[:816] #taking first 816 rows dataset
-
-"""# Removing Outliers from 'likes' Column"""
-
-# Import necessary libraries
-import matplotlib.pyplot as plt
-import numpy as np
-from types import new_class
-
-# Define a function 'remove_outliers' to remove outliers from a group
-def remove_outliers(group):
-    # Calculate the first quartile (q1) of 'likes' in the group
-    q1 = group['likes'].quantile(0.25)
-
-    # Calculate the third quartile (q3) of 'likes' in the group
-    q3 = group['likes'].quantile(0.75)
-
-    # Calculate the interquartile range (IQR) of 'likes' in the group
-    iqr = q3 - q1
-
-    # Calculate the lower bound for outlier detection
-    lower_bound = q1 - 1.5 * iqr
-
-    # Calculate the upper bound for outlier detection
-    upper_bound = q3 + 1.5 * iqr
-
-    # Return a filtered group containing data points within the bounds
-    return group[(group['likes'] >= lower_bound) & (group['likes'] <= upper_bound)]
-
-# Group the DataFrame 'df' by 'username' and apply the 'remove_outliers' function to each group
-filtered_groups = df.groupby('username', group_keys=False).apply(remove_outliers)
-
-# Reset the index of the filtered DataFrame
-filtered_df = filtered_groups.reset_index(drop=True)
-
-# Get the length of the filtered DataFrame
-len(filtered_df)
-
-"""# Boxplots of 'Likes' by Usernames (First 816 Users)"""
-
-# Import necessary libraries
-import matplotlib.pyplot as plt
-
-# Get the 'username' column from the DataFrame 'df' and convert it to a list
-user = df['username'].tolist()
-
-# Create an empty list 'username' to store unique usernames
-username = []
-
-# Loop through each username in the 'user' list to extract unique usernames
-for u in user:
-    if not u in username:
-        username.append(u)
-
-# Select the first 816 unique usernames (if there are at least 816 unique usernames)
-username = username[:816]
 
 # Create a subplots grid with 136 rows and 6 columns, setting the figure size
 fig, ax = plt.subplots(136, 6, figsize=(20, 454))
@@ -317,5 +263,5 @@ data_dict = {'username': username, 'mean': mean_likes, 'median': median_likes,'v
 filtered_dff = pd.DataFrame(data_dict)
 
 # Save the DataFrame to a CSV file
-filtered_dff.to_csv("/content/drive/MyDrive/preprocessing/eda_sorted_username.csv")
+filtered_dff.to_csv("eda_sorted_username.csv")
 
