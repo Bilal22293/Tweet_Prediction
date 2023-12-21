@@ -7,6 +7,9 @@ from rake_nltk import Rake
 import nltk
 import gdown
 
+nltk.download('stopwords')
+nltk.download('punkt')
+
 #Loading image to text pre-trained model
 captioner = pipeline("image-to-text",model="Salesforce/blip2-opt-2.7b", device=0)
 
@@ -55,7 +58,7 @@ for index, row in df.iterrows():
 # Save the updated CSV file with word embeddings
 df.to_csv('image_to_text1.csv', index=False)
 
-
+df=pd.read_csv('image_to_text1.csv')
 
 #Extracting keywords from the caption generated using RAKE
 def extract_keywords_rake(text):
@@ -97,8 +100,8 @@ user=df['user'].tolist()
 for i in range(len(keywords)):
     data = {
         "Keywords":keywords[i],
-        "Likes": like,
-        "Username": user
+        "Likes": like[i],
+        "Username": user[i]
     }
 
     # System prompt
@@ -138,9 +141,24 @@ for i in range(len(keywords)):
     )
 
     txt=tokenizer.decode(tokens[0], skip_special_tokens=True)
-    r=txt.index('\n<|assistant|>\n')
     pred.append(txt)
 
-#Save predictions
-df['predictions']=pred
+def selection(s):
+    r=s.rfind('<|assistant|>')
+    x=s.rfind('<|endoftext|>')
+    return (s[r+len('<|assistant|>'):x])
 
+'''
+!!!removing quotes!!!
+'''
+def remove_quotes(input_string):
+    return input_string.strip('"\'')
+
+pred1=[]
+for pp in pred:
+  pred1.append(selection(pp))
+pred2=[]
+for pp in pred1:
+  pred2.append(remove_quotes(pp))
+#Save predictions
+df['predictions']=pred2
