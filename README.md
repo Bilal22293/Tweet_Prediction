@@ -36,7 +36,7 @@ Our project consists of the following key scripts:
 2. **Preprocessing**: The preprocessing.py file in the Preprocess folder focuses on refining our dataset for better analysis. It starts by eliminating outliers in the 'likes' for each username, followed by cleansing the 'content' column through the removal of emojis, hashtags, and tokenization. Additionally, custom stop words are identified and removed to streamline the data for subsequent analysis. The date and time is also split as date_only and time_only.
 3. **Task 1**: This folder contains the required python files for the models being used in task 1 to predict the number of likes
 4. **Task 2**: This folder contains the required python files for the models being used in task 2 to predict the tweet content
-5. **team_59_results 2**: Cotains results
+5. **team_59_results 2**: Contains results
 
 
 ## Acknowledgements 💖
