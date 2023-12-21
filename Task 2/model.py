@@ -8,7 +8,7 @@ import nltk
 import gdown
 
 #Loading image to text pre-trained model
-captioner = pipeline("image-to-text",model="Salesforce/blip-image-captioning-large", device=0)
+captioner = pipeline("image-to-text",model="Salesforce/blip2-opt-2.7b", device=0)
 
 gdown.download('https://drive.google.com/file/d/1jtkeNyvka2dkC8b12s1NMqCVXTF9uWg4', 'content_simulation_train.csv', quiet=True)
 df=pd.read_csv('content_simulation_train.csv')
@@ -109,11 +109,15 @@ for i in range(len(keywords)):
     2) Number of likes in the tweet
     3) Username in the tweet
 
-    Do not specify the like count in the tweet and make it as unique as possible. Also use relevant emojis and hashtags. The tweet length should be between 20 to 80.
+    Do not specify the number of likes in the tweet and make it as unique as possible. Also use relevant emojis and hashtags. The tweet length should be between 20 to 80.
     Generate a tweet around the specified keywords.
-    And I want you to write Tweet: at the start of every generated tweet and end it with <end> 
+    And I want you to write the generted tweet within quotes.
+    Do not give me any steps, and do not give me any explanation of how you wrote the tweet.
+    Do not give me how you wrote the tweet and why you wrote what you wrote.
+    Give me only the tweet that you wrote as output, nothing else.
 
     Here is your data: {data}
+
     """
 
     prompt = [{'role': 'user', 'content': sys_prompt}]

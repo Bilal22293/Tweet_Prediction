@@ -9,7 +9,7 @@ import pandas as pd
 df = pd.read_csv("../Test Dataset/behaviour_simulation_test_time.csv")
 y_pred = pd.DataFrame(columns=["id","likes"])
 uname = pd.read_csv("username_before_1780.csv")
-df_var = pd.read_csv("eda_sorted_username_final.csv")
+df_var = pd.read_csv("../EDA/username_central_tendencies.csv")
 
 uname = uname.drop(columns ="Unnamed: 0")
 dfx = df[df["username"].isin(uname["username"])]

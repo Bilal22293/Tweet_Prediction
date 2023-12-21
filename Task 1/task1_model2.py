@@ -1,6 +1,7 @@
 # Import necessary libraries
 import pandas as pd
 import numpy as np
+import re
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -65,20 +66,27 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 
 # Define a set of stopwords and punctuations
-stopwords_and_punctuations = set(['hyperlink'] + ['mention'] + ['<'] + ['>'])
-print(stopwords_and_punctuations)
+stopwords = set(['hyperlink'] + ['mention'] + ['<'] + ['>'])
+print(stopwords)
 
 # Function to remove English stopwords
 def remove_english_stopwords_func(text):
-    t = [token for token in text if token.lower() not in stopwords_and_punctuations]
+    t = [token for token in text if token.lower() not in stopwords]
     text = ' '.join(t)
     return text
 
-df_test['content_without_stopwords_and_punctuations'] = df_test['tokenized_content'].apply(remove_english_stopwords_func)
+df_test['content_without_stopwords'] = df_test['tokenized_content'].apply(remove_english_stopwords_func)
+
+# Function to remove hashtags from a text
+def remove_hashtags(text):
+    return re.sub(r'\# \w+', '', text)
+
+# Apply the function to the 'content' column
+df_test['content_without_stopwords_and_hastags'] = df_test['content_without_stopwords'].apply(remove_hashtags)
 
 # Get relevant columns for test data
 tweets_test_1 = df_test['username']
-tweets_test_2 = df_test['content_without_stopwords_and_punctuations']
+tweets_test_2 = df_test['content_without_stopwords_and_hastags']
 tweets_test_4 = df_test['day']
 tweets_test_5 = df_test['month']
 tweets_test_6 = df_test['year']

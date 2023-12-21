@@ -11,7 +11,7 @@ nltk
 scipy
 emoji
 transformers
-rake_nltk
+rake-nltk
 Pillow
 gdown
 seaborn

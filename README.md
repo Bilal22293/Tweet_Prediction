@@ -1,5 +1,5 @@
 
-# Team-59 Adobe-Mid-Prep: Inter IIT Tech Meet 12.0 !Adobe <img src="assets/adobe_logo.png" height="40">
+# Team-59 Adobe-Mid-Prep: Inter IIT Tech Meet 12.0 <img src="assets/adobe_logo.png" alt="Adobe logo" height="40">
 
 ## Overview 🌟
 Welcome to our project repository! Here, we've developed a suite of Python scripts tailored for robust data analysis, preprocessing, and Natural Language Processing (NLP). These scripts are meticulously organized into training, inference, and final execution stages, ensuring a seamless workflow for your data processing needs.
