@@ -5,6 +5,8 @@
 Welcome to our project repository! Here, we've developed a suite of Python scripts tailored for robust data analysis, preprocessing, and Natural Language Processing (NLP). These scripts are meticulously organized into training, inference, and final execution stages, ensuring a seamless workflow for your data processing needs.
 
 ## Repository Directory Structure
+
+```
 README
 EDA/
     - Boxplots
@@ -26,7 +28,7 @@ team_59_results
 assests/
     - adobe_logo.png
 ```
-## Repository Directory Structure
+
 ### Project Structure 📁
 Our project consists of the following key scripts:
 
